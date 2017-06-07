@@ -9,4 +9,5 @@ http://139.196.35.30:8080/OkHttpTest/login.do  这是post请求  请求参数�
 返回json:{"errorReason":"登录成功","password":"123","username":"ansen"}
 
 http://139.196.35.30:8080/OkHttpTest/uploadFile.do 这是post请求,可以上传文件到服务器  表单参数可以随便填写，上传文件参数用upload_file
+
 返回json:{"errorReason":"文件上传成功 在服务器的路径是:/local/tomcat7/webapps/OkHttpTest/WEB-INF/upload/ansen.txt"}
