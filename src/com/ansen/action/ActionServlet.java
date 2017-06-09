@@ -89,7 +89,7 @@ public class ActionServlet extends HttpServlet {
             user.setErrorReason("登录成功");
             out.append(JSONObject.fromObject(user).toString());
         }else if(action.equals("/uploadFile")){
-            String savepath=this.getServletContext().getRealPath("/WEB-INF/upload");
+            String savepath=this.getServletContext().getRealPath("/upload");
             File file=new File(savepath);
             System.out.println(savepath);
             if(!file.exists() && !file.isDirectory()){
