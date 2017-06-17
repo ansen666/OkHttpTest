@@ -98,9 +98,9 @@ public class ActionServlet extends HttpServlet {
             }else{//如果存在删除下面的所有文件
                 String[] children = file.list();
                 for (int i=0; i<children.length; i++) {
-                    System.out.println("删除文件:"+children[i]);
-                    File deleteFile=new File(children[i]);
-                    deleteFile.delete();
+                    File deleteFile=new File(savepath+File.separator+children[i]);
+                    boolean result=deleteFile.delete();
+                    System.out.println("删除文件:"+children[i]+" 删除结果:"+result);
                 }
             }
 
