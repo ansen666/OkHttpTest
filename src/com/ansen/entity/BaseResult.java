@@ -6,6 +6,7 @@ package com.ansen.entity;
  */
 public class BaseResult {
     private String errorReason;//错误说明
+    private int errorCode;//0正常
 
     public String getErrorReason() {
         return errorReason;
@@ -16,4 +17,11 @@ public class BaseResult {
     }
 
 
+    public int getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
 }

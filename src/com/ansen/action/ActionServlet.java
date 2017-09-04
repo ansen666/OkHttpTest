@@ -1,6 +1,7 @@
 package com.ansen.action;
 
 import com.ansen.entity.BaseResult;
+import com.ansen.entity.CheckUpdate;
 import com.ansen.entity.User;
 import com.ansen.util.Utils;
 import net.sf.json.JSONObject;
@@ -20,6 +21,7 @@ import java.util.List;
  * Create Time 2017-06-05
  */
 public class ActionServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
@@ -38,8 +40,20 @@ public class ActionServlet extends HttpServlet {
             user.setUsername("ansen");
             user.setPassword("123");
             out.append(JSONObject.fromObject(user).toString());
-        }
+        }else if(action.equals("/checkUpdate")){//检查更新
+            int versionCode = Integer.parseInt(request.getParameter("version_code"));
+            CheckUpdate checkUpdate=new CheckUpdate();
+            if(versionCode<2){//有新版本
+                checkUpdate.setErrorCode(0);
+                checkUpdate.setErrorReason("有新版本");
 
+                checkUpdate.setUrl("http://139.196.35.30:8080/OkHttpTest/apppackage/checkupdate_2.apk");
+            }else{
+                checkUpdate.setErrorCode(-1);
+                checkUpdate.setErrorReason("当前已经是最新版本");
+            }
+            out.append(JSONObject.fromObject(checkUpdate).toString());
+        }
         out.close();
     }
 
